@@ -24,8 +24,11 @@
                         >
                             Edit
                         </inertia-link>
-                        <a class="mx-1 btn btn-outline-danger btn-md" href="#"
-                            >Delete</a
+                        <inertia-link
+                            class="mx-1 btn btn-outline-danger btn-md"
+                            @click.prevent="deleteUser(user.id)"
+                            :href="`/users/${user.id}`"
+                            >Delete</inertia-link
                         >
                     </td>
                 </tr>
@@ -41,6 +44,13 @@ export default {
     components: {
         Layout
     },
-    props: ["users"]
+    props: ["users"],
+    methods: {
+        deleteUser(user){
+            if(!!confirm('Are you sure?')) {
+                this.$inertia.delete(`/users/${user}`)
+            }
+        }
+    }
 };
 </script>

@@ -30,5 +30,5 @@ Route::post('users', [UserController::class, 'store'])->name('users.store');
 Route::get('users/{user:id}', [UserController::class, 'show'])->name('users.show');
 Route::get('users/{user:id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::patch('users/{user:id}', [UserController::class, 'update'])->name('users.update');
-Route::delete('users/{user:id}', [UserController::class, 'delete'])->name('users.delete');
+Route::delete('users/{user:id}', [UserController::class, 'destroy'])->name('users.delete');
 

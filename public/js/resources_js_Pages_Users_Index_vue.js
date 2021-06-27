@@ -48,12 +48,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     Layout: _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  props: ["users"]
+  props: ["users"],
+  methods: {
+    deleteUser: function deleteUser(user) {
+      if (!!confirm('Are you sure?')) {
+        this.$inertia["delete"]("/users/".concat(user));
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -376,10 +386,16 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c(
-                  "a",
+                  "inertia-link",
                   {
                     staticClass: "mx-1 btn btn-outline-danger btn-md",
-                    attrs: { href: "#" }
+                    attrs: { href: "/users/" + user.id },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.deleteUser(user.id)
+                      }
+                    }
                   },
                   [_vm._v("Delete")]
                 )
