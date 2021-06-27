@@ -20550,6 +20550,14 @@ var map = {
 		"./resources/js/Pages/Shared/Layout.vue",
 		"resources_js_Pages_Shared_Layout_vue"
 	],
+	"./Users/Create": [
+		"./resources/js/Pages/Users/Create.vue",
+		"resources_js_Pages_Users_Create_vue"
+	],
+	"./Users/Create.vue": [
+		"./resources/js/Pages/Users/Create.vue",
+		"resources_js_Pages_Users_Create_vue"
+	],
 	"./Users/Index": [
 		"./resources/js/Pages/Users/Index.vue",
 		"resources_js_Pages_Users_Index_vue"
@@ -20691,7 +20699,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_About_vue":1,"resources_js_Pages_Contact_vue":1,"resources_js_Pages_Shared_Layout_vue":1,"resources_js_Pages_Users_Index_vue":1,"resources_js_Pages_Welcome_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_About_vue":1,"resources_js_Pages_Contact_vue":1,"resources_js_Pages_Shared_Layout_vue":1,"resources_js_Pages_Users_Create_vue":1,"resources_js_Pages_Users_Index_vue":1,"resources_js_Pages_Welcome_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
