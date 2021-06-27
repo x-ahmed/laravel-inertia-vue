@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 
@@ -22,4 +23,12 @@ Route::get('/', function () {
 
 Route::inertia('/about', 'About');
 Route::inertia('/contact', 'Contact');
+
+Route::get('users', [UserController::class, 'index'])->name('users.index');
+Route::get('users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('users', [UserController::class, 'store'])->name('users.store');
+Route::get('users/{user:id}', [UserController::class, 'show'])->name('users.show');
+Route::get('users/{user:id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::patch('users/{user:id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('users/{user:id}', [UserController::class, 'delete'])->name('users.delete');
 
