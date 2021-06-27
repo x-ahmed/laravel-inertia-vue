@@ -20513,6 +20513,14 @@ Vue.compile = compileToFunctions;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Shared/Layout": [
+		"./resources/js/Pages/Shared/Layout.vue",
+		"resources_js_Pages_Shared_Layout_vue"
+	],
+	"./Shared/Layout.vue": [
+		"./resources/js/Pages/Shared/Layout.vue",
+		"resources_js_Pages_Shared_Layout_vue"
+	],
 	"./Welcome": [
 		"./resources/js/Pages/Welcome.vue",
 		"resources_js_Pages_Welcome_vue"
@@ -20646,7 +20654,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "resources_js_Pages_Welcome_vue") return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Shared_Layout_vue":1,"resources_js_Pages_Welcome_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
