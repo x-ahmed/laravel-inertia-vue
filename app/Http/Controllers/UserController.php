@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -74,7 +75,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return inertia('Users/Edit', \compact('user'));
     }
 
     /**
@@ -86,7 +87,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $data = $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
+        ]);
+
+        $user->update($data);
+
+        return redirect()
+            ->back()
+            ->with([
+                'message' => 'user updated successfully!',
+                'type' => 'success',
+            ]);
+
     }
 
     /**
