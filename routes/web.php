@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
     return Inertia::render('Welcome', [
         'foo' => 'bar',
     ]);
 });
+
+Route::inertia('/about', 'About');
+Route::inertia('/contact', 'Contact');
+
