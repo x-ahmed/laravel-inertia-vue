@@ -29,7 +29,21 @@
         </nav>
 
         <article>
-            <slot />
+            <div class="container my-3">
+                <div
+                    v-if="$page.props.flash.message && $page.props.flash.type === 'success'"
+                    class="alert alert-success"
+                >
+                    {{ $page.props.flash.message }}
+                </div>
+                <div
+                    v-if="$page.props.flash.message && $page.props.flash.type === 'danger'"
+                    class="alert alert-danger"
+                >
+                    {{ $page.props.flash.message }}
+                </div>
+                <slot />
+            </div>
         </article>
     </main>
 </template>

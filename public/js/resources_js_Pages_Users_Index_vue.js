@@ -48,8 +48,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -245,7 +243,38 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("article", [_vm._t("default")], 2)
+    _c("article", [
+      _c(
+        "div",
+        { staticClass: "container my-3" },
+        [
+          _vm.$page.props.flash.message &&
+          _vm.$page.props.flash.type === "success"
+            ? _c("div", { staticClass: "alert alert-success" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.message) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.$page.props.flash.message &&
+          _vm.$page.props.flash.type === "danger"
+            ? _c("div", { staticClass: "alert alert-danger" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.message) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._t("default")
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -293,76 +322,74 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("layout", [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "my-3" }, [
-        _c(
-          "a",
-          {
-            staticClass: " btn btn-primary btn-lg",
-            attrs: { href: "/users/create" }
-          },
-          [_vm._v("New User")]
-        )
+    _c("div", { staticClass: "my-3" }, [
+      _c(
+        "a",
+        {
+          staticClass: " btn btn-primary btn-lg",
+          attrs: { href: "/users/create" }
+        },
+        [_vm._v("New User")]
+      )
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-striped" }, [
+      _c("thead", [
+        _c("tr", [
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+          _vm._v(" "),
+          _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
+        ])
       ]),
       _vm._v(" "),
-      _c("table", { staticClass: "table table-striped" }, [
-        _c("thead", [
-          _c("tr", [
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+      _c(
+        "tbody",
+        _vm._l(_vm.users, function(user) {
+          return _c("tr", { key: user.id }, [
+            _c("th", {
+              attrs: { scope: "row" },
+              domProps: { textContent: _vm._s(user.id) }
+            }),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
+            _c("td", { domProps: { textContent: _vm._s(user.name) } }),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
+            _c("td", { domProps: { textContent: _vm._s(user.email) } }),
             _vm._v(" "),
-            _c("th", { attrs: { scope: "col" } }, [_vm._v("Actions")])
+            _c(
+              "td",
+              [
+                _c(
+                  "inertia-link",
+                  {
+                    staticClass: "mx-1 btn btn-outline-info btn-md",
+                    attrs: { href: "/users/" + user.id + "/edit" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Edit\n                    "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass: "mx-1 btn btn-outline-danger btn-md",
+                    attrs: { href: "#" }
+                  },
+                  [_vm._v("Delete")]
+                )
+              ],
+              1
+            )
           ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.users, function(user) {
-            return _c("tr", { key: user.id }, [
-              _c("th", {
-                attrs: { scope: "row" },
-                domProps: { textContent: _vm._s(user.id) }
-              }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(user.name) } }),
-              _vm._v(" "),
-              _c("td", { domProps: { textContent: _vm._s(user.email) } }),
-              _vm._v(" "),
-              _c(
-                "td",
-                [
-                  _c(
-                    "inertia-link",
-                    {
-                      staticClass: "mx-1 btn btn-outline-info btn-md",
-                      attrs: { href: "/users/" + user.id + "/edit" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Edit\n                        "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass: "mx-1 btn btn-outline-danger btn-md",
-                      attrs: { href: "#" }
-                    },
-                    [_vm._v("Delete")]
-                  )
-                ],
-                1
-              )
-            ])
-          }),
-          0
-        )
-      ])
+        }),
+        0
+      )
     ])
   ])
 }

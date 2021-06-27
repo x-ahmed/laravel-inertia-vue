@@ -113,7 +113,38 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("article", [_vm._t("default")], 2)
+    _c("article", [
+      _c(
+        "div",
+        { staticClass: "container my-3" },
+        [
+          _vm.$page.props.flash.message &&
+          _vm.$page.props.flash.type === "success"
+            ? _c("div", { staticClass: "alert alert-success" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.message) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.$page.props.flash.message &&
+          _vm.$page.props.flash.type === "danger"
+            ? _c("div", { staticClass: "alert alert-danger" }, [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$page.props.flash.message) +
+                    "\n            "
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._t("default")
+        ],
+        2
+      )
+    ])
   ])
 }
 var staticRenderFns = [
