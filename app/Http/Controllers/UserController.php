@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::latest('id')->get();
 
         return inertia('Users/Index', \compact('users'));
     }
@@ -37,7 +37,22 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $data = $request->validate([
+            'name' => ['required', 'string'],
+            'email' => ['required', 'email', 'unique:users,email'],
+            'password' => ['required', 'min:8'],
+        ]);
+
+        $user = User::create(\array_merge($data, [
+            'password' => bcrypt($request->input('password')),
+        ]));
+
+        return redirect()
+            ->route('users.show', $user->id)
+            ->with([
+                'message' => 'user created successfully!',
+                'type' => 'success',
+            ]);
     }
 
     /**
